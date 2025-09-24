@@ -1,8 +1,10 @@
+let newX = 0
+let cords: number[][] = []
+music.play(music.createSoundExpression(WaveShape.Sine, 200, 600, 255, 0, 200, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.LoopingInBackground)
 basic.forever(function () {
-    let cords: number[][] = []
-
-    for (let x = 0; x < 5; x++) {
-        if (Math.randomRange(0, 1) == 1) { 
+    music.setVolume(80)
+    for (let x = 0; x <= 4; x++) {
+        if (Math.randomRange(0, 9) >= 3) {
             cords.push([x, Math.randomRange(0, 1)])
         }
     }
@@ -19,13 +21,11 @@ basic.forever(function () {
                 cords.removeAt(i)
             }
         }
-        if (Math.randomRange(0, 2) == 0) {  
-            let newX = Math.randomRange(0, 4)
+if (Math.randomRange(0, 2) == 0) {
+            newX = Math.randomRange(0, 4)
             cords.push([newX, 0])
         }
-
-        basic.pause(300)
+        basic.pause(50)
     }
-
-    basic.pause(2000)  
+    basic.pause(30)
 })
